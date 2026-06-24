@@ -1,10 +1,39 @@
 import { Lock } from 'lucide-react';
 import { Studio } from '@/components/Studio';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import {
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TAGLINE,
+  SITE_URL,
+  SUPPORTED_FORMATS,
+} from '@/lib/site';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: SITE_NAME,
+  url: SITE_URL,
+  description: SITE_DESCRIPTION,
+  applicationCategory: 'MultimediaApplication',
+  operatingSystem: 'Any (web browser)',
+  browserRequirements: 'Requires JavaScript and WebAssembly.',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  featureList: SUPPORTED_FORMATS.map((f) => `Convert to/from ${f}`),
+  isAccessibleForFree: true,
+};
 
 export default function Home() {
   return (
     <div className="min-h-dvh">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <h1 className="sr-only">
+        {SITE_NAME} — {SITE_TAGLINE}: convert {SUPPORTED_FORMATS.join(', ')} images
+        privately in your browser
+      </h1>
       {/* Header */}
       <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
