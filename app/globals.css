@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 16% 98%;
+    --foreground: 222 28% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 28% 11%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 246 72% 56%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 13% 89%;
+    --input: 220 13% 86%;
+    --ring: 246 72% 56%;
+
+    --channel-r: 0 84% 58%;
+    --channel-g: 150 58% 40%;
+    --channel-b: 217 88% 56%;
+    --ok: 150 58% 38%;
+    --warn: 38 92% 48%;
+    --danger: 0 72% 51%;
+
+    --radius: 0.7rem;
+
+    /* Emil easing curves, available to plain CSS transitions. */
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  .dark {
+    --background: 224 24% 6%;
+    --foreground: 210 22% 92%;
+    --card: 223 22% 9%;
+    --card-foreground: 210 22% 92%;
+    --muted: 220 18% 14%;
+    --muted-foreground: 216 14% 60%;
+    --accent: 248 92% 72%;
+    --accent-foreground: 224 24% 6%;
+    --border: 220 16% 18%;
+    --input: 220 16% 22%;
+    --ring: 248 92% 72%;
+
+    --channel-r: 0 86% 66%;
+    --channel-g: 150 60% 52%;
+    --channel-b: 213 92% 66%;
+    --ok: 150 56% 50%;
+    --warn: 38 94% 56%;
+    --danger: 0 78% 62%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: 'cv01', 'cv03', 'ss01';
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Visible, consistent keyboard focus everywhere. */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Tabular figures for all data: sizes, percentages, dimensions. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes pop-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.985);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .grid-instrument {
+    background-image:
+      linear-gradient(to right, hsl(var(--border) / 0.5) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.5) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+}
+
+/* Reduced motion: keep only short fades, drop all transform-based movement. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    transition-property: opacity, background-color, border-color, color !important;
+    scroll-behavior: auto !important;
+  }
+}
