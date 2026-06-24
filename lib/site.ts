@@ -1,7 +1,7 @@
 // Central site metadata. Override the base URL per-environment with
 // NEXT_PUBLIC_SITE_URL (e.g. a preview deploy) without touching code.
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://qr.juampymad.com'
+  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://aperture.juampymad.com'
 ).replace(/\/$/, '');
 
 export const SITE_NAME = 'Aperture';
