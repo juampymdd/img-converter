@@ -1,4 +1,4 @@
-# Aperture — Image Converter
+# img-converter — Free Online Image Converter
 
 Professional, **client-first** image converter. All decoding, resizing and
 re-encoding runs in your browser via WebAssembly inside Web Workers — nothing is

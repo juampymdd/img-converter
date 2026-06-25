@@ -38,8 +38,8 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
           <div className="flex items-center gap-2.5">
-            <Aperture />
-            <span className="font-display text-base font-semibold tracking-tight">Aperture</span>
+            <Logo />
+            <span className="font-display text-base font-semibold tracking-tight">img-converter</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="hidden items-center gap-1.5 text-xs text-muted-foreground sm:flex">
@@ -58,7 +58,7 @@ export default function Home() {
 }
 
 /** Signature mark: an aperture iris built from the three additive channels. */
-function Aperture() {
+function Logo() {
   return (
     <span className="relative grid size-7 place-items-center">
       <span className="absolute size-5 rounded-full bg-channel-r/80 mix-blend-screen [transform:translate(-3px,2px)]" />

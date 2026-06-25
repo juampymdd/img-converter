@@ -4,7 +4,7 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ?? 'https://img-converter.juampymad.com'
 ).replace(/\/$/, '');
 
-export const SITE_NAME = 'Aperture';
+export const SITE_NAME = 'img-converter';
 
 export const SITE_TAGLINE = 'Free Online Image Converter';
 
